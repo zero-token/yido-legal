@@ -3,6 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -15,17 +16,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify localized pages
+        run: |
+          python3 tool/build_site.py
+          python3 -m unittest discover -s tests -v
+          node --check assets/locale.js
+          node tests/locale_behavior.cjs
+          git diff --exit-code -- index.html privacy/index.html terms/index.html children-privacy/index.html support/index.html assets/locale.js
+
   deploy:
+    if: github.event_name != 'pull_request'
+    needs: verify
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Package public pages
+        run: |
+          mkdir _site
+          cp -R assets privacy terms children-privacy support index.html .nojekyll _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
