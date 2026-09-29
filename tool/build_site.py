@@ -15,10 +15,17 @@ EXISTING = json.loads((ROOT / "content" / "existing.json").read_text(encoding="u
 PAGES = (("", "home", -1), ("privacy", "privacy", 0), ("terms", "terms", 1),
          ("children-privacy", "children", 2), ("support", "support", 3))
 EMAIL = "support@yido.me"
+ORIGIN = "https://yido.me"
 
 
 def e(value):
     return escape(value, quote=True)
+
+
+def email_link():
+    # Cloudflare's email obfuscation otherwise turns the contact link into a
+    # JavaScript-dependent placeholder on the custom domain.
+    return f'<!--email_off--><a href="mailto:{EMAIL}">{EMAIL}</a><!--/email_off-->'
 
 
 def body_for(locale, page):
@@ -32,7 +39,7 @@ def body_for(locale, page):
         return f'<h1>{e(t["home_title"])}</h1><p class="lede">{e(t["home_lead"])}</p><div class="cards">{cards}</div>'
     if page == "support":
         return (f'<h1>{e(t["nav"][3])}</h1><p class="lede">{e(t["support_intro"])}</p>'
-                f'<h2>{e(t["support_private"])}</h2><div class="callout"><a href="mailto:{EMAIL}">{EMAIL}</a></div>'
+                f'<h2>{e(t["support_private"])}</h2><div class="callout">{email_link()}</div>'
                 f'<h2>{e(t["support_public"])}</h2><p>{e(t["support_tips"])}</p>'
                 f'<h2>{e(t["support_data_heading"])}</h2><p>{e(t["support_data"])}</p>'
                 f'<h2>{e(t["support_store_heading"])}</h2><p>{e(t["support_store"])}</p>')
@@ -52,7 +59,7 @@ def contact_panel(locale, page):
     heading = t["contact_heading"] if page == "privacy" else t["contact"]
     return (f'<aside class="contact-panel"><h2>{e(heading)}</h2>'
             f'<p>{identity}<strong>{e(t["contact"])}:</strong> '
-            f'<a href="mailto:{EMAIL}">{EMAIL}</a></p></aside>')
+            f'{email_link()}</p></aside>')
 
 
 def render(slug, page, nav_index):
@@ -76,9 +83,11 @@ def render(slug, page, nav_index):
     )
     title = "Yido · Legal & Support" if page == "home" else f'{UI["en"]["nav"][nav_index]} · Yido'
     description = UI["en"]["home_lead"] if page == "home" else f'{UI["en"]["nav"][nav_index]} for Yido Kids.'
+    canonical = f'{ORIGIN}/{slug + "/" if slug else ""}'
     html = (f'<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{e(title)}</title><meta name="description" content="{e(description)}">'
+            f'<link rel="canonical" href="{e(canonical)}">'
             f'<link rel="stylesheet" href="{prefix}assets/style.css">'
             f'<script defer src="{prefix}assets/locale.js"></script></head>\n<body>'
             f'<header><div class="shell"><a class="brand" href="{prefix}"><span class="mark">Y</span>Yido</a>'
