@@ -14,7 +14,7 @@ from site_text import ORDER, UI  # noqa: E402
 EXISTING = json.loads((ROOT / "content" / "existing.json").read_text(encoding="utf-8"))
 PAGES = (("", "home", -1), ("privacy", "privacy", 0), ("terms", "terms", 1),
          ("children-privacy", "children", 2), ("support", "support", 3))
-EMAIL = "welcome.yido@foxmail.com"
+EMAIL = "support@yido.me"
 
 
 def e(value):
