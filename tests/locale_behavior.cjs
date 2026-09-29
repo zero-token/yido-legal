@@ -31,7 +31,9 @@ function makePage(url, browserLanguages) {
   const card = makeLink('../privacy/');
   const updated = {textContent: ''};
   const meta = {content: ''};
-  const languageSwitch = {attributes: {}, setAttribute(key, value) { this.attributes[key] = value; }};
+  const languageSwitch = {open: true};
+  const languageSummary = {textContent: ''};
+  const languageOptions = {attributes: {}, setAttribute(key, value) { this.attributes[key] = value; }};
   const document = {
     documentElement: {lang: '', classList: {add() {}}}, title: '',
     querySelectorAll(selector) {
@@ -47,6 +49,8 @@ function makePage(url, browserLanguages) {
       if (selector === '.locale-section:not([hidden])') return sections.find(section => !section.hidden);
       if (selector === 'meta[name="description"]') return meta;
       if (selector === '[data-language-switch]') return languageSwitch;
+      if (selector === '[data-language-summary]') return languageSummary;
+      if (selector === '.lang-options') return languageOptions;
       return null;
     },
   };
@@ -63,7 +67,7 @@ function makePage(url, browserLanguages) {
     window: {scrollTo() {}},
   };
   vm.runInNewContext(script, context, {filename: 'assets/locale.js'});
-  return {sections, choices, nav, document, meta, languageSwitch, get changedUrl() { return changedUrl; }};
+  return {sections, choices, nav, document, meta, languageSwitch, languageSummary, languageOptions, get changedUrl() { return changedUrl; }};
 }
 
 const first = makePage('https://example.com/yido-legal/?lang=de', ['en-US']);
@@ -71,13 +75,18 @@ assert.equal(first.document.documentElement.lang, 'de');
 assert.equal(first.sections.filter(section => !section.hidden)[0].dataset.locale, 'de');
 assert.equal(first.sections.filter(section => section.hidden).length, 11);
 assert.equal(first.nav[0].textContent, 'Datenschutz');
-assert.equal(first.languageSwitch.attributes['aria-label'], 'Sprache');
+assert.equal(first.languageSummary.textContent, 'Sprache · Deutsch');
+assert.equal(first.languageOptions.attributes['aria-label'], 'Sprache');
+assert.equal(first.languageSwitch.open, false);
 assert.equal(first.document.title, 'Title de · Yido');
 
+first.languageSwitch.open = true;
 first.choices.find(choice => choice.dataset.choose === 'zh-Hant').handlers.click({preventDefault() {}});
 assert.equal(first.document.documentElement.lang, 'zh-Hant');
 assert.equal(first.nav[0].textContent, '隱私權政策');
-assert.equal(first.languageSwitch.attributes['aria-label'], '語言');
+assert.equal(first.languageSummary.textContent, '語言 · 繁體中文');
+assert.equal(first.languageOptions.attributes['aria-label'], '語言');
+assert.equal(first.languageSwitch.open, false);
 assert.match(first.nav[0].href, /lang=zh-Hant/);
 assert.match(first.changedUrl, /lang=zh-Hant/);
 assert.equal(memory.get('yido-legal-locale'), 'zh-Hant');

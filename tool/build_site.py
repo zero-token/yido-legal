@@ -14,7 +14,7 @@ from site_text import ORDER, UI  # noqa: E402
 EXISTING = json.loads((ROOT / "content" / "existing.json").read_text(encoding="utf-8"))
 PAGES = (("", "home", -1), ("privacy", "privacy", 0), ("terms", "terms", 1),
          ("children-privacy", "children", 2), ("support", "support", 3))
-EMAIL = "welcome.yido@foxmail.com"
+EMAIL = "support@yido.me"
 
 
 def e(value):
@@ -85,7 +85,9 @@ def render(slug, page, nav_index):
             f'<script defer src="{prefix}assets/locale.js"></script></head>\n<body>'
             f'<header><div class="shell"><a class="brand" href="{prefix}"><span class="mark">Y</span>Yido</a>'
             f'<nav aria-label="Yido">{nav}</nav></div></header>\n'
-            f'<main class="shell"><div class="lang-switch" role="navigation" data-language-switch aria-label="Language">{choices}</div>'
+            f'<main class="shell"><details class="lang-switch" data-language-switch>'
+            f'<summary data-language-summary>Language · English</summary>'
+            f'<div class="lang-options" role="group" aria-label="Language">{choices}</div></details>'
             + "\n".join(sections) + '</main>\n'
             f'<footer><div class="shell">© 2026 Yido · <span data-updated>{e(UI["en"]["updated"])}</span></div></footer>'
             '</body></html>\n')
@@ -94,7 +96,7 @@ def render(slug, page, nav_index):
 
 
 def build_script():
-    public_ui = {locale: {"lang": t["lang"], "nav": t["nav"], "updated": t["updated"],
+    public_ui = {locale: {"lang": t["lang"], "label": t["label"], "nav": t["nav"], "updated": t["updated"],
                           "languageLabel": t["language_label"]}
                  for locale, t in UI.items()}
     js = "const ui = " + json.dumps(public_ui, ensure_ascii=False, separators=(",", ":")) + ";\n"
@@ -147,7 +149,11 @@ function activate(locale, updateUrl = false) {
     link.textContent = config.nav[Number(link.dataset.nav)];
   }
   const languageSwitch = document.querySelector('[data-language-switch]');
-  if (languageSwitch) languageSwitch.setAttribute('aria-label', config.languageLabel);
+  if (languageSwitch) languageSwitch.open = false;
+  const languageSummary = document.querySelector('[data-language-summary]');
+  if (languageSummary) languageSummary.textContent = config.languageLabel + ' · ' + config.label;
+  const languageOptions = document.querySelector('.lang-options');
+  if (languageOptions) languageOptions.setAttribute('aria-label', config.languageLabel);
   document.querySelectorAll('[data-updated]').forEach(node => { node.textContent = config.updated; });
   const current = document.querySelector('.locale-section:not([hidden])');
   if (current) {
