@@ -71,6 +71,8 @@ class LocalizationRegressionTest(unittest.TestCase):
         for page in PAGES:
             html = (ROOT / page / "index.html").read_text(encoding="utf-8")
             with self.subTest(page=page):
+                canonical = f'https://yido.me/{page + "/" if page else ""}'
+                self.assertIn(f'<link rel="canonical" href="{canonical}">', html)
                 self.assertIn("assets/locale.js", html)
                 self.assertIn('data-language-switch', html)
                 self.assertIn('data-language-summary', html)
@@ -78,6 +80,25 @@ class LocalizationRegressionTest(unittest.TestCase):
                 self.assertEqual(12, len(re.findall(r'class="locale-choice"', html)))
                 self.assertNotIn('href="/privacy/"', html)
         self.assertTrue((ROOT / "assets" / "locale.js").is_file())
+
+    def test_email_contact_is_readable_without_cloudflare_decode_script(self):
+        for page in PAGES:
+            html = (ROOT / page / "index.html").read_text(encoding="utf-8")
+            with self.subTest(page=page):
+                self.assertEqual(html.count('mailto:support@yido.me'),
+                                 html.count('<!--email_off-->'))
+                self.assertEqual(html.count('mailto:support@yido.me'),
+                                 html.count('<!--/email_off-->'))
+
+    def test_english_privacy_and_purchase_copy(self):
+        privacy = (ROOT / "privacy" / "index.html").read_text(encoding="utf-8")
+        children = (ROOT / "children-privacy" / "index.html").read_text(encoding="utf-8")
+        terms = (ROOT / "terms" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("Security and retention", privacy)
+        self.assertIn("iCloud, Google, or device OS backups", privacy)
+        self.assertIn("Parent choices and rights", privacy)
+        self.assertIn("does not initialize a third-party analytics SDK or use", children)
+        self.assertNotIn("billing period, trial, and", terms)
 
     def test_support_does_not_send_families_to_private_repo_issues(self):
         html = (ROOT / "support" / "index.html").read_text(encoding="utf-8")
