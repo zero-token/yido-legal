@@ -54,15 +54,18 @@ class LocalizationRegressionTest(unittest.TestCase):
                     self.assertIn("Yido", text)
                     self.assertNotRegex(text, r"\[(?:TODO|TBD|待填写)\]")
 
-    def test_private_contact_and_operator_are_visible_on_every_page(self):
+    def test_contact_is_visible_and_identity_is_limited_to_privacy_policy(self):
         for page in PAGES:
             html = (ROOT / page / "index.html").read_text(encoding="utf-8")
             with self.subTest(page=page):
-                self.assertIn("Wang Zhengzhong", html)
-                self.assertIn("王正仲", html)
+                self.assertEqual(12 if page == "privacy" else 0, html.count("Wang Zhengzhong"))
+                self.assertEqual(12 if page == "privacy" else 0, html.count("王正仲"))
                 self.assertIn("support@yido.me", html)
                 self.assertIn("mailto:support@yido.me", html)
                 self.assertNotIn("welcome.yido@foxmail.com", html)
+                self.assertNotIn("Minhang District", html)
+                self.assertNotIn("闵行区", html)
+                self.assertNotIn("閔行區", html)
 
     def test_static_site_links_and_locale_controller_exist(self):
         for page in PAGES:
