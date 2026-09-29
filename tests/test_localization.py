@@ -60,14 +60,18 @@ class LocalizationRegressionTest(unittest.TestCase):
             with self.subTest(page=page):
                 self.assertIn("Wang Zhengzhong", html)
                 self.assertIn("王正仲", html)
-                self.assertIn("welcome.yido@foxmail.com", html)
-                self.assertIn("mailto:welcome.yido@foxmail.com", html)
+                self.assertIn("support@yido.me", html)
+                self.assertIn("mailto:support@yido.me", html)
+                self.assertNotIn("welcome.yido@foxmail.com", html)
 
     def test_static_site_links_and_locale_controller_exist(self):
         for page in PAGES:
             html = (ROOT / page / "index.html").read_text(encoding="utf-8")
             with self.subTest(page=page):
                 self.assertIn("assets/locale.js", html)
+                self.assertIn('data-language-switch', html)
+                self.assertIn('data-language-summary', html)
+                self.assertIn('class="lang-options"', html)
                 self.assertEqual(12, len(re.findall(r'class="locale-choice"', html)))
                 self.assertNotIn('href="/privacy/"', html)
         self.assertTrue((ROOT / "assets" / "locale.js").is_file())
@@ -75,7 +79,7 @@ class LocalizationRegressionTest(unittest.TestCase):
     def test_support_does_not_send_families_to_private_repo_issues(self):
         html = (ROOT / "support" / "index.html").read_text(encoding="utf-8")
         self.assertNotIn("github.com/madlabx/yido/issues", html)
-        self.assertEqual(24, html.count("mailto:welcome.yido@foxmail.com"))
+        self.assertEqual(24, html.count("mailto:support@yido.me"))
 
     def test_terms_distinguish_app_experience_from_store_trial(self):
         html = (ROOT / "terms" / "index.html").read_text(encoding="utf-8")
