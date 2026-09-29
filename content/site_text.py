@@ -16,7 +16,7 @@ UI = {
         "support_tips": "Before reporting a problem, check app permissions and Yido's reminder and backup settings. Include the app version, device model, and steps to reproduce, but no child content.",
         "support_data": "Parents can edit or delete profiles, tasks, check-ins, photos, and recordings in the app. Uninstalling removes local app data; manage any OS backups in system settings. Email us if you need further help.",
         "support_store": "Apple or Google handles purchases, refunds, and subscription cancellation through the relevant store account.",
-        "operator": "Operator", "address": "Location", "contact": "Contact", "updated": "Updated September 25, 2026",
+        "operator": "Operator", "contact": "Contact", "updated": "Updated September 29, 2026",
         "trial_notice": "The 14-day in-app experience begins after a guardian confirms the privacy notice. It does not require a payment method, does not renew automatically, and is not an App Store or Google Play free trial.",
     },
     "de": {
@@ -30,7 +30,7 @@ UI = {
         "support_tips": "Prüfen Sie zuerst die Berechtigungen und die Einstellungen für Erinnerungen und Backups. Nennen Sie App-Version, Gerätemodell und Schritte zur Reproduktion, aber keine Inhalte von Kindern.",
         "support_data": "Eltern können Profile, Aufgaben, Check-ins, Fotos und Aufnahmen in der App bearbeiten oder löschen. Eine Deinstallation entfernt lokale App-Daten; System-Backups verwalten Sie in den Geräteeinstellungen. Bei weiteren Fragen schreiben Sie uns eine E-Mail.",
         "support_store": "Käufe, Erstattungen und Kündigungen von Abonnements werden über das jeweilige Konto bei Apple oder Google abgewickelt.",
-        "operator": "Betreiber", "address": "Standort", "contact": "Kontakt", "updated": "Aktualisiert am 25. September 2026",
+        "operator": "Betreiber", "contact": "Kontakt", "updated": "Aktualisiert am 29. September 2026",
         "trial_notice": "Die 14-tägige App-interne Kennenlernphase beginnt nach Bestätigung des Datenschutzhinweises durch eine sorgeberechtigte Person. Sie erfordert keine Zahlungsmethode, verlängert sich nicht automatisch und ist kein kostenloser Testzeitraum im App Store oder bei Google Play.",
     },
     "es": {
@@ -44,7 +44,7 @@ UI = {
         "support_tips": "Comprueba los permisos y los ajustes de recordatorios y copias de seguridad. Indica la versión de la aplicación, el modelo del dispositivo y los pasos para reproducir el problema, sin contenido de menores.",
         "support_data": "Los padres pueden editar o borrar perfiles, tareas, registros, fotos y grabaciones en la aplicación. Al desinstalarla se borran los datos locales; las copias del sistema se gestionan en sus ajustes. Si necesitas más ayuda, escríbenos.",
         "support_store": "Apple o Google gestionan las compras, los reembolsos y la cancelación de suscripciones desde la cuenta de la tienda correspondiente.",
-        "operator": "Responsable", "address": "Ubicación", "contact": "Contacto", "updated": "Actualizado el 25 de septiembre de 2026",
+        "operator": "Responsable", "contact": "Contacto", "updated": "Actualizado el 29 de septiembre de 2026",
         "trial_notice": "La experiencia completa de 14 días en la aplicación comienza cuando un tutor confirma el aviso de privacidad. No requiere método de pago, no se renueva automáticamente y no es una prueba gratuita del App Store ni de Google Play.",
     },
     "es-419": {
@@ -58,7 +58,7 @@ UI = {
         "support_tips": "Revisa los permisos y la configuración de recordatorios y respaldos. Indica la versión de la app, el modelo del dispositivo y los pasos para repetir el problema, sin compartir contenido infantil.",
         "support_data": "Madres, padres o tutores pueden editar o borrar perfiles, tareas, registros, fotos y grabaciones en la app. Al desinstalarla se borran los datos locales; los respaldos del sistema se administran en sus ajustes. Si necesitas ayuda, escríbenos.",
         "support_store": "Apple o Google gestionan compras, reembolsos y cancelaciones de suscripciones desde la cuenta de la tienda correspondiente.",
-        "operator": "Responsable", "address": "Ubicación", "contact": "Contacto", "updated": "Actualizado el 25 de septiembre de 2026",
+        "operator": "Responsable", "contact": "Contacto", "updated": "Actualizado el 29 de septiembre de 2026",
         "trial_notice": "La experiencia completa de 14 días en la app comienza cuando un tutor confirma el aviso de privacidad. No requiere medio de pago, no se renueva automáticamente y no es una prueba gratis de App Store ni de Google Play.",
     },
     "fr": {
@@ -72,7 +72,7 @@ UI = {
         "support_tips": "Vérifiez d’abord les autorisations et les réglages des rappels et sauvegardes. Indiquez la version de l’application, le modèle de l’appareil et les étapes du problème, sans contenu relatif à l’enfant.",
         "support_data": "Les parents peuvent modifier ou supprimer les profils, tâches, pointages, photos et enregistrements dans l’application. La désinstallation efface les données locales ; les sauvegardes système se gèrent dans les réglages. Écrivez-nous si vous avez besoin d’aide.",
         "support_store": "Apple ou Google gère les achats, remboursements et résiliations d’abonnement depuis le compte de la boutique concernée.",
-        "operator": "Responsable", "address": "Localisation", "contact": "Contact", "updated": "Mis à jour le 25 septembre 2026",
+        "operator": "Responsable", "contact": "Contact", "updated": "Mis à jour le 29 septembre 2026",
         "trial_notice": "La période de découverte de 14 jours dans l’application commence après validation de l’avis de confidentialité par un responsable légal. Elle ne demande aucun moyen de paiement, ne se renouvelle pas automatiquement et ne constitue pas un essai gratuit de l’App Store ou de Google Play.",
     },
     "hi": {
@@ -86,7 +86,7 @@ UI = {
         "support_tips": "पहले ऐप की अनुमतियाँ और रिमाइंडर व बैकअप सेटिंग जाँचें। ऐप संस्करण, डिवाइस मॉडल और समस्या दोहराने के चरण बताएं, लेकिन बच्चे की सामग्री न भेजें।",
         "support_data": "अभिभावक ऐप में प्रोफ़ाइल, कार्य, चेक-इन, फ़ोटो और रिकॉर्डिंग बदल या मिटा सकते हैं। ऐप हटाने से स्थानीय डेटा मिटता है; सिस्टम बैकअप सेटिंग में प्रबंधित करें। अधिक सहायता के लिए ईमेल करें।",
         "support_store": "खरीद, रिफंड और सदस्यता रद्द करने की प्रक्रिया संबंधित Apple या Google स्टोर खाते से होती है।",
-        "operator": "संचालक", "address": "स्थान", "contact": "संपर्क", "updated": "अपडेट: 25 सितंबर 2026",
+        "operator": "संचालक", "contact": "संपर्क", "updated": "अपडेट: 29 सितंबर 2026",
         "trial_notice": "अभिभावक द्वारा गोपनीयता सूचना की पुष्टि के बाद ऐप में 14 दिनों का पूरा अनुभव शुरू होता है। इसके लिए भुगतान विधि नहीं चाहिए, यह अपने आप नवीनीकृत नहीं होता और यह App Store या Google Play की मुफ़्त परीक्षण अवधि नहीं है।",
     },
     "ja": {
@@ -100,7 +100,7 @@ UI = {
         "support_tips": "まず権限と通知・バックアップ設定を確認してください。アプリのバージョン、端末の機種、再現手順を記載し、子どもの情報は添付しないでください。",
         "support_data": "保護者はアプリ内でプロフィール、タスク、チェックイン、写真、録音を編集・削除できます。アプリの削除で端末内データは消去され、OS のバックアップはシステム設定で管理します。必要な場合はメールでご相談ください。",
         "support_store": "購入、返金、定期購入の解約は、該当する Apple または Google のストアアカウントで手続きします。",
-        "operator": "運営者", "address": "所在地", "contact": "連絡先", "updated": "更新日：2026年9月25日",
+        "operator": "運営者", "contact": "連絡先", "updated": "更新日：2026年9月29日",
         "trial_notice": "アプリ内の14日間の全機能体験は、保護者がプライバシー通知を確認した後に始まります。支払い方法の登録は不要で、自動更新もされません。App Store または Google Play の無料トライアルではありません。",
     },
     "ko": {
@@ -114,7 +114,7 @@ UI = {
         "support_tips": "먼저 권한과 알림·백업 설정을 확인하세요. 앱 버전, 기기 모델, 재현 단계를 알려 주되 아동의 콘텐츠는 첨부하지 마세요.",
         "support_data": "보호자는 앱에서 프로필, 할 일, 체크인, 사진 및 녹음을 수정하거나 삭제할 수 있습니다. 앱을 제거하면 기기의 로컬 데이터가 삭제되며 OS 백업은 시스템 설정에서 관리합니다. 추가 도움이 필요하면 이메일을 보내 주세요.",
         "support_store": "구매, 환불, 구독 해지는 해당 Apple 또는 Google 스토어 계정에서 처리합니다.",
-        "operator": "운영자", "address": "소재지", "contact": "연락처", "updated": "최종 업데이트: 2026년 9월 25일",
+        "operator": "운영자", "contact": "연락처", "updated": "최종 업데이트: 2026년 9월 29일",
         "trial_notice": "앱 내 14일 전체 기능 체험은 보호자가 개인정보 안내를 확인한 뒤 시작됩니다. 결제 수단이 필요 없고 자동 갱신되지 않으며 App Store 또는 Google Play의 무료 체험이 아닙니다.",
     },
     "pt": {
@@ -128,7 +128,7 @@ UI = {
         "support_tips": "Verifique primeiro as permissões e as definições de lembretes e cópias de segurança. Indique a versão da aplicação, o modelo do dispositivo e os passos para reproduzir o problema, sem conteúdo da criança.",
         "support_data": "Os pais podem editar ou apagar perfis, tarefas, registos, fotografias e gravações na aplicação. A desinstalação remove os dados locais; as cópias do sistema são geridas nas definições. Envie-nos um email se precisar de ajuda.",
         "support_store": "A Apple ou a Google trata das compras, dos reembolsos e do cancelamento de subscrições na respetiva conta da loja.",
-        "operator": "Responsável", "address": "Localização", "contact": "Contacto", "updated": "Atualizado em 25 de setembro de 2026",
+        "operator": "Responsável", "contact": "Contacto", "updated": "Atualizado em 29 de setembro de 2026",
         "trial_notice": "A experiência completa de 14 dias na aplicação começa após a confirmação do aviso de privacidade por um responsável. Não requer método de pagamento, não renova automaticamente e não é um período experimental gratuito da App Store ou da Google Play.",
     },
     "pt-BR": {
@@ -142,7 +142,7 @@ UI = {
         "support_tips": "Confira primeiro as permissões e as configurações de lembretes e backup. Informe a versão do aplicativo, o modelo do dispositivo e as etapas para reproduzir o problema, sem conteúdo da criança.",
         "support_data": "Responsáveis podem editar ou excluir perfis, tarefas, registros, fotos e gravações no aplicativo. A desinstalação remove os dados locais; backups do sistema são gerenciados nas configurações. Envie um e-mail se precisar de ajuda.",
         "support_store": "Apple ou Google gerencia compras, reembolsos e cancelamentos de assinaturas na conta da loja correspondente.",
-        "operator": "Responsável", "address": "Localização", "contact": "Contato", "updated": "Atualizado em 25 de setembro de 2026",
+        "operator": "Responsável", "contact": "Contato", "updated": "Atualizado em 29 de setembro de 2026",
         "trial_notice": "A experiência completa de 14 dias no aplicativo começa depois que um responsável confirma o aviso de privacidade. Não exige forma de pagamento, não renova automaticamente e não é um teste grátis da App Store ou do Google Play.",
     },
     "zh": {
@@ -156,7 +156,7 @@ UI = {
         "support_tips": "反馈前可先检查系统权限，以及 Yido 的提醒和备份设置。请提供应用版本、设备型号和复现步骤，但不要附上儿童内容。",
         "support_data": "家长可在应用内编辑或删除档案、任务、打卡、照片和录音。卸载应用会删除本机数据；系统备份需在系统设置中管理。如需进一步帮助，请发邮件联系我们。",
         "support_store": "购买、退款和取消订阅由 Apple 或 Google 商店处理，请在对应商店账户中操作。",
-        "operator": "运营者", "address": "所在地", "contact": "联系邮箱", "updated": "更新日期：2026 年 9 月 25 日",
+        "operator": "运营者", "contact": "联系邮箱", "updated": "更新日期：2026 年 9 月 29 日",
         "trial_notice": "监护人确认隐私提示后，应用内 14 天完整体验开始。无需绑定支付方式，不会自动续订，也不是 App Store 或 Google Play 的商店免费试用。",
     },
     "zh-Hant": {
@@ -170,7 +170,7 @@ UI = {
         "support_tips": "回報前可先檢查系統權限，以及 Yido 的提醒和備份設定。請提供應用程式版本、裝置型號與重現步驟，但不要附上兒童內容。",
         "support_data": "家長可在應用程式中編輯或刪除個人檔案、任務、打卡、相片和錄音。解除安裝會刪除裝置上的資料；系統備份需在系統設定中管理。如需進一步協助，請寄信給我們。",
         "support_store": "購買、退款和取消訂閱由 Apple 或 Google 商店處理，請在對應商店帳戶中操作。",
-        "operator": "營運者", "address": "所在地", "contact": "聯絡信箱", "updated": "更新日期：2026 年 9 月 25 日",
+        "operator": "營運者", "contact": "聯絡信箱", "updated": "更新日期：2026 年 9 月 29 日",
         "trial_notice": "監護人確認隱私提示後，應用程式內的 14 天完整體驗開始。無需綁定付款方式，不會自動續訂，也不是 App Store 或 Google Play 的商店免費試用。",
     },
 }

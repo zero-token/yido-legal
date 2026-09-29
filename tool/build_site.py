@@ -45,16 +45,14 @@ def body_for(locale, page):
     return body
 
 
-def contact_panel(locale):
+def contact_panel(locale, page):
     t = UI[locale]
-    address = {
-        "zh": "中国上海市闵行区 / Minhang District, Shanghai, China",
-        "zh-Hant": "中國上海市閔行區 / Minhang District, Shanghai, China",
-    }.get(locale, "Minhang District, Shanghai, China / 中国上海市闵行区")
-    return (f'<aside class="contact-panel"><h2>{e(t["contact_heading"])}</h2>'
-            f'<p><strong>{e(t["operator"])}:</strong> 王正仲 / Wang Zhengzhong<br>'
-            f'<strong>{e(t["address"])}:</strong> {e(address)}<br>'
-            f'<strong>{e(t["contact"])}:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></p></aside>')
+    identity = (f'<strong>{e(t["operator"])}:</strong> 王正仲 / Wang Zhengzhong<br>'
+                if page == "privacy" else "")
+    heading = t["contact_heading"] if page == "privacy" else t["contact"]
+    return (f'<aside class="contact-panel"><h2>{e(heading)}</h2>'
+            f'<p>{identity}<strong>{e(t["contact"])}:</strong> '
+            f'<a href="mailto:{EMAIL}">{EMAIL}</a></p></aside>')
 
 
 def render(slug, page, nav_index):
@@ -65,7 +63,7 @@ def render(slug, page, nav_index):
         content = body_for(locale, page)
         sections.append(
             f'<section class="locale-section" id="locale-{e(locale)}" data-locale="{e(locale)}" lang="{e(t["lang"])}">'
-            f'<p class="meta">{e(t["updated"])}</p>{content}{contact_panel(locale)}</section>'
+            f'<p class="meta">{e(t["updated"])}</p>{content}{contact_panel(locale, page)}</section>'
         )
     choices = "".join(
         f'<a class="locale-choice" href="?lang={e(locale)}#locale-{e(locale)}" data-choose="{e(locale)}" '
